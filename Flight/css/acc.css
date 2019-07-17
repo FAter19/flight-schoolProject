@@ -1,0 +1,38 @@
+.navLinksContainer {
+    /* border: 1px solid #000; */
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.twocontainer {
+    display: flex;
+    min-height: 90vh;
+}
+
+.leftNav {
+    background: #f77373;
+    padding: 12rem;
+    width: 10%;
+}
+
+.rightNav {
+    background: #d8d8d8;
+    /* padding: 12rem; */
+    width: 90%;
+    padding: 3rem;
+    display: flex;
+}
+    .quickFormContainer {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin: auto;
+        padding: 3rem;
+        /* border: 1px solid #000; */
+    }

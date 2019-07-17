@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900" rel="stylesheet">
+    <script src="jquery/src/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <title>Flight | Home</title>
+</head>
+    <body>
+
+        <div class="bodyContainer">
+
+            <div class="header">
+                <!-- <img src="img/beverage-computer-flower-9488882.jpg" alt="" srcset=""> -->
+                <!-- top header section -->
+                <div class="topHeader">
+                    <!-- the company logo -->
+                   <div class="logo">
+                        <img src="img/72ppi/flight2.png" alt="" srcset="">
+                   </div>
+                   <!-- the navigation bar -->
+                   <div class="navContainer">
+                       <div class="hamburger">
+                           <div class="line"></div>
+                           <div class="line"></div>
+                           <div class="line lineHalf"></div>
+                       </div>
+                       <div class="navLinksContainer">
+                        <div  class="navLinkBox"><a href="index.html" class="navLink">Home</a></div>
+                        <div  class="navLinkBox"><a href="about.html" class="navLink">About us</a></div>
+                        <div class="navLinkBox"><a href="mybookings.html" class="navLink">My Booking</a></div>
+                        <div  class="navLinkBox"><a href="cancellation.html" class="navLink">Cancellation</a></div>
+                        <div  class="navLinkBox"><a href="print.html" class="navLink">Print Ticket</a></div>
+                        <div  class="navLinkBox"><a href="contact.html" class="navLink">Contact Us</a></div>
+                           <!-- navLinkActive -->
+                       </div>
+                   </div>
+                </div>
+
+                <!-- hero section of the page -->
+                <div class="heroSection">
+                    <div class="quickFormContainer">
+                        <div class="field-container"> <p class="fs24 wcolor">  Quick Reservation</p></div>
+
+                        <form class="qbookContainer" action="form.php" method="post" onsubmit="return searchBus()">
+                            <div class="field-flex flexd">
+                                <div class="fromContainer">
+                                    <p class="fs15 wcolor">From</p>
+                                    <select class="" name="fromLoc">
+                                        <option value="" disabled selected>-Select Origin-</option>
+                                        <option value="Bangalore">	Bangalore	</option>
+                                        <option value="Mumbai">	Mumbai	</option>
+                                        <option value="Chennai">	Chennai	</option>
+                                        <option value="Hyderabad">	Hyderabad	</option>
+                                        <option value="Coimbatore">	Coimbatore</option>
+                                        <option value="Mysore">	Mysore	</option>
+                                        <option value="Pune">	Pune	</option>
+                                        <option value="Delhi">	Delhi	</option>
+
+                                        <option value="Kochi">	Kochi	</option>
+                                        <option value="Kolkata">	Kolkata	</option>
+                                        <option value="Chandigarh">	Chandigarh	</option>
+
+                                        <option value="Mohali">	Mohali	</option>
+                                        <option value="Ludhiana">	Ludhiana	</option>
+                                        <option value="Indore">	Indore	</option>
+                                        <option value="Amritsar">	Amritsar	</option>
+                                        <option value="Jalandhar">	Jalandhar	</option>
+                                        <option value="Jaipur">	Jaipur	</option>
+                                        <option value="Lucknow">	Lucknow	</option>
+                                        <option value="Shimla">	Shimla	</option>
+                                        <option value="Nagpur">	Nagpur	</option>
+                                        <option value="Jammu">	Jammu	</option>
+                                        <option value="Surat">	Surat	</option>
+                                        <option value="Srinagar">	Srinagar	</option>
+                                        <option value="Kanpur">	Kanpur	</option>
+                                        <option value="Allahabad">	Allahabad	</option>
+                                        <option value="Varanasi">	Varanasi	</option>
+                                        <option value="Agra">	Agra	</option>
+                                        <option value="Ajmer">	Ajmer	</option>
+                                        <option value="Udaipur">	Udaipur	</option>
+                                        <option value="Bikaner">	Bikaner	</option>
+                                        <option value="Jodhpur">	Jodhpur	</option>
+                                        <option value="Gandhinagar">	Gandhinagar	</option>
+                                        <option value="Goa">	Goa	</option>
+                                        <option value="Solapur">	Solapur	</option>
+                                        <option value="Kolhapur">	Kolhapur	</option>
+                                        <option value="Nashik">	Nashik	</option>
+                                        <option value="Bhopal">	Bhopal	</option>
+                                        <option value="Gwalior">	Gwalior	</option>
+                                        <option value="Jabalpur">	Jabalpur	</option>
+                                        <option value="Vijayawada">	Vijayawada	</option>
+                                        <option value="Nellore">	Nellore	</option>
+                                        <option value="Vizag">	Vizag	</option>
+                                        <option value="Mangalore">	Mangalore	</option>
+                                        <option value="Hubli">	Hubli	</option>
+                                        <option value="Belgaum">	Belgaum	</option>
+                                        <option value="Pondicherry">	Pondicherry	</option>
+                                        <option value="Trichy">	Trichy	</option>
+                                        <option value="Madurai">	Madurai	</option>
+                                        <option value="Vellore">	Vellore	</option>
+                                        <option value="Trivandrum">	Trivandrum	</option>
+                                        <option value="Bhubaneswar">	Bhubaneswar	</option>
+                                        <option value="Guwahati">	Guwahati	</option>
+                                        <option value="Patna">	Patna	</option>
+                                        <option value="Dhanbad">	Dhanbad	</option>
+                                        <option value="Jamshedpur">	Jamshedpur	</option>
+                                        <option value="Ranchi">	Ranchi	</option>
+                                    </select>
+                                </div>
+                                <div class="fromContainer">
+                                        <p class="fs15 wcolor">To</p>
+                                        <!--<select name="toLoc">
+                                       </select>-->
+
+                                        <select class="" name="toLoc">
+                                             <option value="" disabled selected>-Select Destination-</option>
+                                            <option value="Bangalore">	Bangalore	</option>
+                                           <option value="Mumbai">	Mumbai	</option>
+                                           <option value="Chennai">	Chennai	</option>
+                                           <option value="Hyderabad">	Hyderabad	</option>
+                                           <option value="Coimbatore">	Coimbatore</option>
+                                           <option value="Mysore">	Mysore	</option>
+                                           <option value="Pune">	Pune	</option>
+                                           <option value="Delhi">	Delhi	</option>
+
+                                           <option value="Kochi">	Kochi	</option>
+                                           <option value="Kolkata">	Kolkata	</option>
+                                           <option value="Chandigarh">	Chandigarh	</option>
+
+                                           <option value="Mohali">	Mohali	</option>
+                                           <option value="Ludhiana">	Ludhiana	</option>
+                                           <option value="Indore">	Indore	</option>
+                                           <option value="Amritsar">	Amritsar	</option>
+                                           <option value="Jalandhar">	Jalandhar	</option>
+                                           <option value="Jaipur">	Jaipur	</option>
+                                           <option value="Lucknow">	Lucknow	</option>
+                                           <option value="Shimla">	Shimla	</option>
+                                           <option value="Nagpur">	Nagpur	</option>
+                                           <option value="Jammu">	Jammu	</option>
+                                           <option value="Surat">	Surat	</option>
+                                           <option value="Srinagar">	Srinagar	</option>
+                                           <option value="Kanpur">	Kanpur	</option>
+                                           <option value="Allahabad">	Allahabad	</option>
+                                           <option value="Varanasi">	Varanasi	</option>
+                                           <option value="Agra">	Agra	</option>
+                                           <option value="Ajmer">	Ajmer	</option>
+                                           <option value="Udaipur">	Udaipur	</option>
+                                           <option value="Bikaner">	Bikaner	</option>
+                                           <option value="Jodhpur">	Jodhpur	</option>
+                                           <option value="Gandhinagar">	Gandhinagar	</option>
+                                           <option value="Goa">	Goa	</option>
+                                           <option value="Solapur">	Solapur	</option>
+                                           <option value="Kolhapur">	Kolhapur	</option>
+                                           <option value="Nashik">	Nashik	</option>
+                                           <option value="Bhopal">	Bhopal	</option>
+                                           <option value="Gwalior">	Gwalior	</option>
+                                           <option value="Jabalpur">	Jabalpur	</option>
+                                           <option value="Vijayawada">	Vijayawada	</option>
+                                           <option value="Nellore">	Nellore	</option>
+                                           <option value="Vizag">	Vizag	</option>
+                                           <option value="Mangalore">	Mangalore	</option>
+                                           <option value="Hubli">	Hubli	</option>
+                                           <option value="Belgaum">	Belgaum	</option>
+                                           <option value="Pondicherry">	Pondicherry	</option>
+                                           <option value="Trichy">	Trichy	</option>
+                                           <option value="Madurai">	Madurai	</option>
+                                           <option value="Vellore">	Vellore	</option>
+                                           <option value="Trivandrum">	Trivandrum	</option>
+                                           <option value="Bhubaneswar">	Bhubaneswar	</option>
+                                           <option value="Guwahati">	Guwahati	</option>
+                                           <option value="Patna">	Patna	</option>
+                                           <option value="Dhanbad">	Dhanbad	</option>
+                                           <option value="Jamshedpur">	Jamshedpur	</option>
+                                           <option value="Ranchi">	Ranchi	</option>
+                                        </select>
+                                    </div>
+                            </div>
+
+                            <div class="dtimeContainer">
+                                <p class="fs15 wcolor">Departure Time</p>
+                                    <input type="date" name="dep_date" id="departTime">
+                            </div>
+                        
+                        </form>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- main body of the page -->
+            <div class="mainBodyContainer">
+
+            </div>
+
+                <!-- bottom body of the page -->
+                <div class="bottomBodyContainer">
+
+                </div>
+
+        </div>
+
+        <script src="src/app.js"></script>
+    </body>
+</html>

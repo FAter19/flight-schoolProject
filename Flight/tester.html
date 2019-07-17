@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="src/jquery.js" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2> Choose seats by clicking the corresponding seat in the layout below:</h2>
+    <div class="holder"> 
+        <div  class="place">
+
+        </div>    
+    </div>
+    <div style="float:left;"> 
+    <div class="seatDescription">
+        <div style="background:url('img/available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Seat</div>
+        <div style="background:url('img/booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Seat</div>
+        <div style="background:url('img/selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Seat</div>
+    </div>
+    </div>
+        <div style="clear:both;width:100%">
+        <input type="button" class="btnShowNew" value="Show Selected Seats" />
+        <input type="button" class="btnShow" value="Show All" />           
+        </div>
+
+<!--  -->
+<h2> Choose seats by clicking the corresponding seat in the layout below:</h2>
+<div class="holder"> 
+    <div  class="place">
+
+    </div>    
+</div>
+<div style="float:left;"> 
+<div class="seatDescription">
+    <div style="background:url('img/available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Seat</div>
+    <div style="background:url('img/booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Seat</div>
+    <div style="background:url('img/selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Seat</div>
+</div>
+</div>
+    <div style="clear:both;width:100%">
+    <input type="button" class="btnShowNew" value="Show Selected Seats" />
+    <input type="button" class="btnShow" value="Show All" />           
+    </div>
+
+
+    <div class="cardContainer">
+        <div class="mail_info">
+            <p>email@email.com</p>
+        </div>
+        <div class="detailspay">
+            <p>Enter your card details to pay</p>
+        </div>
+        <div class="card">
+            <form action='paycard.php' method='post'>
+                <div class="cardNumberContainer bdgrey mgb">
+                    <p class="no-margin">CARD NUMBER</p>
+                    <input type="text" name="num" id="" class="inputWidth" placeholder="XXXX XXXX XXXX XXXX">
+                </div>
+                <div class="dateContainer">
+                        <div class="bdgrey mgb mr3">
+                            <p class="no-margin">CARD EXPIRY</p>
+                            <input type="text" name="expdate" id="" class="inputWidth " placeholder="MM/YY">
+                            <input type='hidden'  name='tickets' value='$tickets'>
+                            <input type='hidden'  name='pid' value='$pid'>
+                            <input type='hidden'  name='rid' value='$rid'>
+                            <input type='hidden'  name='seats' value='$seats'>
+                            <input type='hidden'  name='status' value='booked'>
+
+                        </div>
+                        <div class="bdgrey mgb">
+                            <p class="no-margin">CVV</p>
+                            <input type="text" name="cvv" id="" class="inputWidth" placeholder="123">
+                        </div>
+                </div>
+                <div class="btnContainer">
+                    <input type="button" value="Pay NGN $totalfare" class="paybtn">
+                </div>
+            </form>    
+        </div>
+    </div>
+
+    <style>
+        .flex {
+            display: flex;
+        }
+        .cardContainer {
+            border: 1px solid #000;
+            max-width: 22rem;
+            padding: 2rem;
+        }
+        .detailspay {
+            display: flex;
+            justify-content: center;
+        }
+        .bdgrey {
+            border: 1px solid #c4c4c4;
+            border-radius: .5rem;
+        }
+        .inputWidth {
+            width: 100%;
+            box-sizing: border-box;
+            padding: .5rem;
+            border: none;
+            font-size: 1rem;
+            margin-bottom: .3rem;
+        }
+        .mgb {
+            margin-bottom: 2rem;
+
+        }
+        .mr3 {
+            margin-right: 1rem;
+        }
+        .no-margin {
+            margin: .4rem .4rem 0 .4rem;
+
+        }
+        .dateContainer {
+            display: flex;
+            justify-content: center;
+        }
+        .paybtn {
+            padding: .8rem;
+            width: 100%;
+            background: rgb(211, 37, 37);
+            color: #FFF;
+            border: none;
+            border-radius: .4rem;
+        }
+    </style>
+
+<script>
+    
+
+var settings = {
+               rows: 4,
+               cols: 3,
+               rowCssPrefix: 'row-',
+               colCssPrefix: 'col-',
+               seatWidth: 70,
+               seatHeight: 70,
+               seatCss: 'seat',
+               selectedSeatCss: 'selectedSeat',
+               selectingSeatCss: 'selectingSeat'
+           };
+
+
+var init = function (reservedSeat) {
+                var str = [], seatNo, className;
+                for (i = 0; i < settings.cols; i++) {
+                    for (j = 0; j < settings.rows; j++) {
+                        seatNo = (i + j * settings.cols + 1);
+                        className = settings.seatCss + ' ' + settings.rowCssPrefix + i.toString() + ' ' + settings.colCssPrefix + j.toString();
+                        if ($.isArray(reservedSeat) && $.inArray(seatNo, reservedSeat) != -1) {
+                            className += ' ' + settings.selectedSeatCss;
+                        }
+                        if (seatNo !== 3) {
+                            str.push('<div class="' + className + '"' +
+                                  'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px">' +
+                                  '<a title="' + seatNo + '">' + seatNo + '</a>' +
+                                  '</div>');
+                        }
+                        if (seatNo[2] == 3) {
+                            str.push('<div class="' + className + '"' +
+                                  'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px">' +
+                                //   '<a title="' + seatNo + '">' + seatNo + '</a>' +
+                                  '</div>');
+                        }
+                    }
+                }
+
+                
+                $('.place').html(str.join(''));
+            };
+            //case I: Show from starting
+            //init();
+ 
+            //Case II: If already booked
+            var bookedSeats = [3,12];
+           
+            init(bookedSeats);
+
+
+$('.' + settings.seatCss).click(function () {
+if ($(this).hasClass(settings.selectedSeatCss)){
+    alert('This seat is already reserved');
+}
+else{
+    $(this).toggleClass(settings.selectingSeatCss);
+    }
+});
+ 
+$('.btnShow').click(function () {
+    var str = [];
+    $.each($('.place div.' + settings.selectedSeatCss + ' a, .place div.'+ settings.selectingSeatCss + ' a'), function (index, value) {
+        str.push($(this).attr('title'));
+    });
+    alert(str.join(','));
+})
+ 
+$('.btnShowNew').click(function () {
+    var str = [], item;
+    $.each($('.place div.' + settings.selectingSeatCss + ' a'), function (index, value) {
+        item = $(this).attr('title');                   
+        str.push(item);                   
+    });
+    alert(str.join(','));
+})
+
+// document.getElementById('place').innerHTML= settings;
+
+</script>
+
+
+<style>
+    
+.holder{    
+height:210px;    
+width:550px;
+background-color:#F5F5F5;
+border:1px solid #A4A4A4;
+margin-left:10px;   
+}
+.place {
+position:relative;
+margin:7px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.place a{
+font-size: .8em;
+}
+.place .seat
+{
+ /* list-style: none outside none; */
+ /* margin: 1rem; */
+ 
+ position: absolute;   
+}    
+.place .seat:hover
+{
+background-color:rgb(255, 255, 1); 
+} 
+.place .seat{
+background:url("img/available_seat_img.gif") no-repeat scroll 0 0 transparent;
+height:45px;
+width:45px;
+margin: 10px;
+display:block; 
+cursor: pointer;  
+
+}
+.place .selectedSeat
+{ 
+background-image:url("img/booked_seat_img.gif");
+/* background: rgb(248, 248, 248); */
+cursor: not-allowed;          
+}
+.place .selectingSeat
+{ 
+background-image:url("img/selected_seat_img.gif"); 
+cursor: pointer;         
+}
+.place .row-3, .place .row-4{
+margin-top:10px;
+}
+.seatDescription {
+    margin: 30px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+.seatDescription div{
+/* verticle-align:middle;     */
+list-style: none outside none;
+padding-left:35px;
+height:35px;
+float:left;
+}
+</style>
+
+
+<div class="bus_container"> 
+    <div>Route id: 10004</div>       
+    <div>Bus: Toyota</div>       
+    <div>Departure Time: 06:00:00</div>      
+    <div class="flex bus_detail2">         
+        <div><div>A/C </div>yes</div>         
+        <div><div>Amount </div>#4000</div>          
+        <div><div>Avaliable seat </div>5 / 9</div> 
+        <div><p>Select</p>
+            <form action="selectedbus.php" method="post">
+                <input type="radio" name="rid" value="10004" <="" div=""> 
+            </form></div> </div> <div class="holder">  
+                <div class="place"><div value="1" class="seat row-0 col-0" style="top:0px;left:0px"><a title="1">1</a></div>
+                <div value="4" class="seat row-0 col-1" style="top:0px;left:70px"><a title="4">4</a></div><div value="7" class="seat row-0 col-2" style="top:0px;left:140px"><a title="7">7</a></div><div value="10" class="seat row-0 col-3" style="top:0px;left:210px"><a title="10">10</a></div><div value="2" class="seat row-1 col-0" style="top:70px;left:0px"><a title="2">2</a></div><div value="5" class="seat row-1 col-1" style="top:70px;left:70px"><a title="5">5</a></div><div value="8" class="seat row-1 col-2" style="top:70px;left:140px"><a title="8">8</a></div><div value="11" class="seat row-1 col-3" style="top:70px;left:210px"><a title="11">11</a></div><div value="6" class="seat row-2 col-1" style="top:140px;left:70px"><a title="6">6</a></div><div value="9" class="seat row-2 col-2" style="top:140px;left:140px"><a title="9">9</a></div><div value="12" class="seat row-2 col-3" style="top:140px;left:210px"><a title="12">12</a></div></div> </div>
+
+    </div>
+
+    <div class="ticketDetailContainer">
+        <!-- details -->
+        <div class="flex">
+            <div class="ticketNumberContainer">
+                <p>Ticket Number</p>
+            </div>
+            <div class="busidContainer">
+                <p>Bus ID</p>
+            </div>
+            <div class="fromContainer">
+                <p>From</p>
+            </div>
+            <div class="fromContainer">
+                <p>To</p>
+            </div>
+            <div class="dateContainer">
+                <p>Date</p>
+            </div>
+            <div class="timeContainer">
+                <p>Time</p>
+            </div>
+            <div class="costContainer">
+                <p>Cost(&#8358;)</p>
+            </div>
+            <div class="statusContainer">
+                <p>Status</p>
+            </div>
+            <div class="cancelContainer">
+                <p>Cancel</p>
+            </div>
+            <div class="printContainer">
+                <p>Print</p>
+            </div>
+        </div>
+        <!-- other details -->
+        <div class="flex">
+                <div class="ticketNumberContainer">
+                    <p>". $row['pnr']."</p>
+                </div>
+                <div class="busidContainer">
+                    <p>". $row['bid']."</p>
+                </div>
+                <div class="fromContainer">
+                    <p>" . $row['fromLoc']. "</p>
+                </div>
+                <div class="fromContainer">
+                    <p>". $row['toLoc']."</p>
+                </div>
+                <div class="dateContainer">
+                    <p>" . $row['dep_date']."</p>
+                </div>
+                <div class="timeContainer">
+                    <p>". $row['dep_time']."</p>
+                </div>
+                <div class="costContainer">
+                    <p>". $row['fare']."</p>
+                </div>
+                <div class="statusContainer">
+                    <p>". $row['status']."</p>
+                </div>
+                <div class="cancelContainer">
+                        <form action='cancel.php' method='post'><input type='hidden'  name='pnr' value=". $row['pnr'].">
+                            <input type='hidden'  name='email' value=". $row['email'].">
+                            <input type='hidden'  name='mob' value=". $row['mob'].">
+                            <input type='hidden'  name='mob' value='$mob'><input type='hidden'  name='status' value='booked'><input type='submit' value='cancel ticket'></form>
+                </div>
+                <div class="printContainer">
+                        <form action='print.php' method='post'><input type='hidden'  name='pnr' value=". $row['pnr']."><input type='hidden'  name='mob' value=".$row['mob']."><input type='submit' value='print'></form>
+                </div>
+            </div>
+    </div>
+
+    <style>
+    .ticketNumberContainer,.busidContainer,.fromContainer,
+    .dateContainer,.timeContainer,.costContainer,.statusContainer,
+    .cancelContainer,.printContainer {
+        margin: 0 1rem;
+    }
+    
+
+    </style>
+
+</body>
+</html>
+
+<!-- but what has he said so far  -->
+
+<!-- ENJOY IT AS IT LEAST oo  -->

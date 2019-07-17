@@ -1,0 +1,149 @@
+/* 
+pub{
+text-align:center;
+background-color: blue;
+position:absolute;
+	height: 40px;
+	width: 400px;
+  top:145;
+  left:200px;
+}
+
+puk{
+text-align:center;
+background-color: blue;
+position:absolute;
+height: 80px;
+width: 550px;
+top:145;
+left:200px;
+}
+
+pud{
+text-align:center;
+background-color: blue;
+position:absolute;
+height: 40px;
+width: 540px;
+top:145;
+left:200px;
+} */
+.flex {
+    display: flex;
+}
+
+.headerContainer {
+  background: #fff; 
+  padding: 2rem;
+}
+.topHeader2 {
+        height: 5rem;
+        border-bottom: 1px solid rgb(250, 3, 3);
+        /* background: #ffffff;  */
+        /* box-shadow: 0 1px 13px #e6e6e6; */
+        background: transparent;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+
+.bus_container {
+  border-radius: 1rem;
+  /* border: 1px solid #000; */
+  background: #fff;
+  max-width: 70rem;
+  margin: 6rem auto;
+  padding: 2rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.bus_detail2 {
+  margin: .5rem 0 0 0;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.buslister {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10rem 0 0 0;
+}
+
+    
+.holder{    
+height:210px;    
+width:500px;
+background-color:#F5F5F5;
+border:1px solid #A4A4A4;
+margin:10px auto;   
+}
+.place {
+position:relative;
+margin:7px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.place a{
+font-size: .8em;
+}
+.place div
+{
+ /* list-style: none outside none; */
+ /* margin: 1rem; */
+ 
+ position: absolute;   
+}    
+.place div:hover
+{
+background-color:rgb(255, 255, 1); 
+} 
+.place .seat{
+background:url("img/available_seat_img.gif") no-repeat scroll 0 0 transparent;
+height:45px;
+width:45px;
+margin: 10px;
+display:block; 
+cursor: pointer;  
+
+}
+.place .selectedSeat
+{ 
+background-image:url("img/booked_seat_img.gif");
+/* background: rgb(248, 248, 248); */
+cursor: not-allowed;          
+}
+.place .selectingSeat
+{ 
+background-image:url("img/selected_seat_img.gif"); 
+cursor: pointer;         
+}
+.place .row-3, .place .row-4{
+margin-top:10px;
+}
+.seatDescription {
+    margin: 30px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+.seatDescription div{
+/* verticle-align:middle;     */
+list-style: none outside none;
+padding-left:35px;
+height:35px;
+float:left;
+}
+.seatpic {
+    width: 20%;
+    height: 74%;
+}
+
+.seatpic:nth-child(2){
+
+}
